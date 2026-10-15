@@ -31,3 +31,9 @@ Route::middleware(['web', 'auth', 'can:manage-app-maqual'])->group(function (): 
     Route::get('apps/maqual/personal', Personalabteilung::class)->name('apps.maqual.personal');
     Volt::route('apps/maqual/admin', 'apps.maqual.admin.index')->name('apps.maqual.admin.index');
 });
+
+Route::middleware(['web', 'auth', 'can:manage-app-maqual'])->group(function (): void {
+    Volt::route('apps/maqual/admin/background-activities', 'apps.maqual.admin.background-activities')
+        ->name('apps.maqual.admin.background-activities');
+});
+

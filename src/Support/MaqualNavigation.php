@@ -73,6 +73,15 @@ class MaqualNavigation
         ];
 
         $items[] = [
+            'label' => 'Hintergrund',
+            'href' => route('apps.maqual.admin.background-activities'),
+            'icon' => 'clock',
+            'description' => 'Geplante Tasks, Jobs und Versand',
+            'buttonText' => 'Hintergrund öffnen',
+            'permission' => 'manage-app-maqual',
+        ];
+
+        $items[] = [
             'label' => 'Admin',
             'href' => route('apps.maqual.admin.index'),
             'icon' => 'shield-check',

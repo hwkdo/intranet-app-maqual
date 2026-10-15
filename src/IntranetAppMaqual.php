@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Hwkdo\IntranetAppMaqual;
 
+use Hwkdo\IntranetAppBase\Interfaces\ProvidesBackgroundActivitiesInterface;
+use Hwkdo\IntranetAppMaqual\Background\MaqualBackgroundActivities;
 use Hwkdo\IntranetAppBase\Data\NotificationTypeDefinition;
 use Hwkdo\IntranetAppBase\Interfaces\IntranetAppInterface;
 use Hwkdo\IntranetAppBase\Interfaces\ProvidesNotificationsInterface;
@@ -11,7 +13,7 @@ use Hwkdo\IntranetAppBase\Interfaces\ProvidesTasksInterface;
 use Hwkdo\IntranetAppMaqual\Tasks\OffeneQualAktionenTaskProvider;
 use Illuminate\Support\Collection;
 
-class IntranetAppMaqual implements IntranetAppInterface, ProvidesNotificationsInterface, ProvidesTasksInterface
+class IntranetAppMaqual implements IntranetAppInterface, ProvidesBackgroundActivitiesInterface, ProvidesNotificationsInterface, ProvidesTasksInterface
 {
     public static function app_name(): string
     {
@@ -108,4 +110,11 @@ class IntranetAppMaqual implements IntranetAppInterface, ProvidesNotificationsIn
             OffeneQualAktionenTaskProvider::class,
         ];
     }
+
+    public static function backgroundActivities(): array
+    {
+        return MaqualBackgroundActivities::definitions();
+    }
+
+
 }

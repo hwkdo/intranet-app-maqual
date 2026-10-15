@@ -2,6 +2,4 @@
 
 declare(strict_types=1);
 
-use Illuminate\Support\Facades\Schedule;
-
-Schedule::command('maqual:fordere-teilnahme')->daily();
+// Schedules werden über ProvidesBackgroundActivitiesInterface registriert.

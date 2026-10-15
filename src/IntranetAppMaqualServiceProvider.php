@@ -12,7 +12,6 @@ use Hwkdo\IntranetAppMaqual\Models\Qual;
 use Hwkdo\IntranetAppMaqual\Policies\QualPolicy;
 use Hwkdo\IntranetAppMaqual\Services\QualFreigabeCardActionHandler;
 use Hwkdo\IntranetAppMaqual\Support\RegistersMaqualUserRelations;
-use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Volt\Volt;
 use Spatie\LaravelPackageTools\Package;
@@ -51,10 +50,6 @@ class IntranetAppMaqualServiceProvider extends PackageServiceProvider
         });
 
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-
-        $this->app->resolving(Schedule::class, function (): void {
-            require __DIR__.'/../routes/console.php';
-        });
 
         $this->registerTeamsAdaptiveCardActionHandlers();
     }
